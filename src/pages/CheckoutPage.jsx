@@ -83,7 +83,7 @@ export default function CheckoutPage() {
     try {
       // For multiple items, we'll create orders sequentially
       for (const item of cartItems) {
-        const response = await axios.post('http://localhost:5000/api/orders', {
+        const response = await axios.post('https://ecommers-backend-hogy.onrender.com/api/orders', {
           ...form,
           productId: item.id,
           variant: item.variant,

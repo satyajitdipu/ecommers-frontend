@@ -12,7 +12,7 @@ export default function ProductShowcase({ onOpenCart }) { // <-- accept prop to 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/products");
+        const res = await fetch("https://ecommers-backend-hogy.onrender.com/api/products");
         const data = await res.json();
         if (Array.isArray(data)) {
           setProducts(data);
