@@ -1,17 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Custom Scrollbar for Dark Mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 255, 0.5);
+}
+
+/* Proper cursor styles - removed global cursor: none */
+html {
+  cursor: auto;
+}
+
+/* Specific cursor styles for different elements */
+button, a, [role="button"], .cursor-pointer {
+  cursor: pointer !important;
+}
+
+input, textarea, select, [contenteditable] {
+  cursor: text !important;
+}
+
+/* Noise texture backgrounds */
+.bg-noise-dark {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0,245,255,0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.bg-noise-light {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(59,130,246,0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00f5ff, #ffff00);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00d4e7, #e6e600);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00f5ff, #ffff00);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes neon-pulse {
+  0% { text-shadow: 0 0 5px #00F5FF, 0 0 10px #00F5FF, 0 0 15px #00F5FF; }
+  100% { text-shadow: 0 0 10px #00F5FF, 0 0 20px #00F5FF, 0 0 30px #00F5FF; }
+}
+
+/* Gradient utilities */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+@keyframes cyber-glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* Dynamic Island Navigation Styles */
+.dynamic-island {
+  will-change: transform, backdrop-filter;
+  transform-origin: center;
+}
+
+.dynamic-island::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* Enhanced Glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-effect-dark {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Parallax Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+/* Dynamic Gradient Animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #00F5FF, #FFFF00, #FF00FF, #00FF00);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Floating Particle Effects */
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translate(10px, -10px) rotate(90deg);
+    opacity: 1;
+  }
+  50% { 
+    transform: translate(-5px, -20px) rotate(180deg);
+    opacity: 0.7;
+  }
+  75% { 
+    transform: translate(-15px, -5px) rotate(270deg);
+    opacity: 0.9;
+  }
+}
+
+.particle {
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+/* Enhanced Blur Effects */
+.backdrop-blur-dynamic {
+  backdrop-filter: blur(var(--blur-amount, 10px)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--blur-amount, 10px)) saturate(150%);
+}
+
+/* Morphing Border Radius */
+@keyframes morph-border {
+  0%, 100% { border-radius: 24px; }
+  25% { border-radius: 32px 24px 32px 24px; }
+  50% { border-radius: 40px; }
+  75% { border-radius: 24px 40px 24px 40px; }
+}
+
+.morph-border {
+  animation: morph-border 10s ease-in-out infinite;
+}
+
+/* Interactive Hover Glow */
+.hover-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hover-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.hover-glow:hover::before {
+  opacity: 1;
+}
+
+/* Smooth Transform Performance */
+* {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Enhanced shadow effects */
+.shadow-glow {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 8px 32px rgba(0, 245, 255, 0.15);
+}
+
+.shadow-glow-yellow {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 8px 32px rgba(255, 255, 0, 0.15);
+}
+
+/* Utility classes */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Hero UI custom styles */
+.heroui-card {
+  transition: all 0.3s ease;
+}
+
+.heroui-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Animation performance optimization */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glass morphism utility classes */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-effect-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
