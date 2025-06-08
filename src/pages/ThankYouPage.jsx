@@ -20,7 +20,7 @@ export default function ThankYouPage() {
     // Function to fetch order data
     function fetchOrderData(orderId) {
       axios
-        .get(`https://ecommers-backend-hogy.onrender.com/api/payment/order/${orderId}`)
+        .get(`https://ecommers-backend-1.onrender.com/api/payment/order/${orderId}`)
         .then((res) => {
           setOrder(res.data);
           setLoading(false);
@@ -33,7 +33,7 @@ export default function ThankYouPage() {
 
  if (razorpay_payment_id && razorpay_payment_link_status === 'paid') {
   axios
-    .post('https://ecommers-backend-hogy.onrender.com/api/payment/save-payment', {
+    .post('https://ecommers-backend-1.onrender.com/api/payment/save-payment', {
       razorpay_payment_id,
       razorpay_order_id: razorpay_payment_link_id,
       razorpay_signature,

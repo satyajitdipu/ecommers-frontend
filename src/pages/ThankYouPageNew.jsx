@@ -17,7 +17,7 @@ const ThankYouPage = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(`https://ecommers-backend-hogy.onrender.com/api/payment/order/${orderId}`);
+        const response = await axios.get(`https://ecommers-backend-1.onrender.com/api/payment/order/${orderId}`);
         setOrder(response.data);
       } catch (err) {
         console.error('Error fetching order:', err);
