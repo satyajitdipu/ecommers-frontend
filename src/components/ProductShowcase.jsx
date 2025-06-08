@@ -54,7 +54,7 @@ export default function ProductShowcase({ onOpenCart }) { // <-- accept prop to 
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden p-4 relative"
           >
             <img
-              src={product.image}
+              src={product.image_url}
               alt={product.name}
               className="w-full h-48 object-cover rounded-lg"
             />
